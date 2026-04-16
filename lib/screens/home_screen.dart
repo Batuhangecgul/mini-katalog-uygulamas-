@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import '../models/product.dart';
 import '../services/product_repository.dart';
 import '../widgets/product_card.dart';
+import 'cart_screen.dart';
 import 'product_detail_screen.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -46,6 +47,12 @@ class _HomeScreenState extends State<HomeScreen> {
     }).toList();
   }
 
+  List<Product> get _cartProducts {
+    return _allProducts
+        .where((product) => _cartProductIds.contains(product.id))
+        .toList();
+  }
+
   void _addToCart(Product product) {
     setState(() {
       _cartProductIds.add(product.id);
@@ -71,25 +78,45 @@ class _HomeScreenState extends State<HomeScreen> {
     }
   }
 
+  Future<void> _openCart() async {
+    await Navigator.of(context).push(
+      MaterialPageRoute(
+        builder: (_) => CartScreen(products: _cartProducts),
+      ),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         title: const Text('Mini Katalog Uygulamasi'),
         actions: [
-          Padding(
-            padding: const EdgeInsets.only(right: 14),
-            child: Center(
-              child: Row(
-                children: [
-                  const Icon(Icons.shopping_cart_outlined),
-                  const SizedBox(width: 6),
-                  Text(
-                    _cartProductIds.length.toString(),
-                    style: const TextStyle(fontWeight: FontWeight.bold),
+          IconButton(
+            onPressed: _openCart,
+            tooltip: 'Sepeti ac',
+            icon: Stack(
+              clipBehavior: Clip.none,
+              children: [
+                const Icon(Icons.shopping_cart_outlined),
+                if (_cartProductIds.isNotEmpty)
+                  Positioned(
+                    right: -8,
+                    top: -8,
+                    child: CircleAvatar(
+                      radius: 9,
+                      backgroundColor: Colors.teal,
+                      child: Text(
+                        _cartProductIds.length.toString(),
+                        style: const TextStyle(
+                          color: Colors.white,
+                          fontSize: 11,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                    ),
                   ),
-                ],
-              ),
+              ],
             ),
           ),
         ],
