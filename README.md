@@ -59,4 +59,4 @@ Asagidaki ekran goruntuleri `screenshots/` klasoru altina eklenmelidir:
 - `screenshots/product-detail.png`
 - `screenshots/cart.png`
 
-Not: Su anda `screenshots/` klasorunde yalnizca `.gitkeep` bulunuyor. Teslim oncesi gercek ekran goruntulerini ekleyin.
+Not: Su anda `screenshots/` klasorunde gerekli ekran fotorafları var
