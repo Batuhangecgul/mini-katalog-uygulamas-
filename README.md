@@ -10,7 +10,7 @@ Bu uygulama temel Flutter egitim hedeflerini gostermek icin hazirlanmistir:
 - Temel UI bilesenleri (Text, Container, Row, Column, Card, ListTile mantigi)
 - Navigator ile sayfalar arasi gecis
 - Named route ve route argument ile veri tasima
-- JSON simulasyonu ile modelleme (fromJson/toJson)
+- Fake Store API verisi ile modelleme (fromJson/toJson)
 - GridView ile urun kartlari
 - Basit arama ve filtreleme
 - Sepete ekleme simulasyonu
@@ -54,9 +54,6 @@ lib/
 	widgets/
 		product_card.dart
 	main.dart
-assets/
-	data/
-		products.json
 screenshots/
 	.gitkeep
 ```
@@ -64,9 +61,9 @@ screenshots/
 ## Egitim Amacli Veri Kaynaklari
 
 - Banner gorseli: https://wantapi.com/assets/banner.png
-- Urun verisi mantigi: https://wantapi.com/products.php
+- Urun verisi: https://fakestoreapi.com/products
 
-Not: Uygulama, egitim kapsaminda ekstra paket kullanmadan yerel JSON simulasyonu ile calismaktadir.
+Not: Uygulama urunleri Fake Store API uzerinden canli olarak cekmektedir.
 
 ## Ekran Goruntuleri
 
