@@ -1,70 +1,62 @@
 # Mini Katalog Uygulamasi
 
-Flutter haftalik egitim cikti projesi: ana sayfa, urun listesi, urun detayi, route argument gecisi, GridView kartlar ve basit sepet state simulasyonu.
+Flutter egitimi kapsaminda gelistirilen mini katalog uygulamasi.
+
+## Repository Bilgisi
+
+- Repository URL: BURAYA_GITHUB_REPOSITORY_URL_YAZIN
+- Repository durumu: Public olmali
+- Proje durumu: Calisir durumda (README dahil)
 
 ## Kisa Aciklama
 
-Bu uygulama temel Flutter egitim hedeflerini gostermek icin hazirlanmistir:
+Uygulama, Fake Store API uzerinden urunleri cekip kullaniciya katalog deneyimi sunar.
+Temel ozellikler:
 
-- Stateless ve Stateful widget kullanimi
-- Temel UI bilesenleri (Text, Container, Row, Column, Card, ListTile mantigi)
-- Navigator ile sayfalar arasi gecis
-- Named route ve route argument ile veri tasima
-- Fake Store API verisi ile modelleme (fromJson/toJson)
-- GridView ile urun kartlari
-- Basit arama ve filtreleme
-- Sepete ekleme simulasyonu
+- Ana sayfada urunleri grid olarak listeleme
+- Arama ve kategoriye gore filtreleme
+- Urun detay sayfasi ve route argument gecisi
+- Sepete urun ekleme, adet arttirma/azaltma, urun cikarma
+- Adet 0 oldugunda urunu sepette aninda gizleme
 
 ## Kullanilan Flutter Surumu
 
 - Flutter: 3.41.6 (stable)
 - Dart: 3.11.4
 
-## Kurulum ve Calistirma Adimlari
+## Calistirma Adimlari
 
-1. Flutter kurulumunu dogrulayin:
+1. Flutter kurulumunu dogrulayin.
 
-	 ```bash
-	 flutter doctor
-	 ```
-
-2. Proje bagimliliklarini yukleyin:
-
-	 ```bash
-	 flutter pub get
-	 ```
-
-3. Emulatorde veya fiziksel cihazda uygulamayi calistirin:
-
-	 ```bash
-	 flutter run
-	 ```
-
-## Proje Yapisı
-
-```text
-lib/
-	models/
-		product.dart
-	screens/
-		home_screen.dart
-		product_detail_screen.dart
-	services/
-		product_repository.dart
-	widgets/
-		product_card.dart
-	main.dart
-screenshots/
-	.gitkeep
+```bash
+flutter doctor
 ```
 
-## Egitim Amacli Veri Kaynaklari
+2. Proje bagimliliklarini yukleyin.
 
-- Banner gorseli: https://wantapi.com/assets/banner.png
-- Urun verisi: https://fakestoreapi.com/products
+```bash
+flutter pub get
+```
 
-Not: Uygulama urunleri Fake Store API uzerinden canli olarak cekmektedir.
+3. Uygulamayi emulator veya fiziksel cihazda calistirin.
 
-## Ekran Goruntuleri
+```bash
+flutter run
+```
 
-Ekran goruntulerini `screenshots/` klasorune ekleyebilirsiniz.
+4. (Opsiyonel) Android icin APK alin.
+
+```bash
+flutter build apk --split-per-abi
+```
+
+## Ekran Goruntuleri (screenshots)
+
+Asagidaki ekran goruntuleri `screenshots/` klasoru altina eklenmelidir:
+
+- `screenshots/home.png`
+- `screenshots/category-filter.png`
+- `screenshots/product-detail.png`
+- `screenshots/cart.png`
+
+Not: Su anda `screenshots/` klasorunde yalnizca `.gitkeep` bulunuyor. Teslim oncesi gercek ekran goruntulerini ekleyin.
