@@ -1,0 +1,74 @@
+[
+  {
+    "id": 1,
+    "title": "Akilli Saat X1",
+    "description": "Gunluk aktivite, nabiz ve uyku takibi icin hafif ve dayanikli akilli saat.",
+    "price": 1499.0,
+    "imageUrl": "https://picsum.photos/seed/watch/800/600",
+    "category": "Giyilebilir",
+    "rating": 4.6
+  },
+  {
+    "id": 2,
+    "title": "Kablosuz Kulaklik Pro",
+    "description": "Aktif gurultu engelleme, uzun pil omru ve hizli sarj destegi sunar.",
+    "price": 1899.0,
+    "imageUrl": "https://picsum.photos/seed/headphone/800/600",
+    "category": "Ses",
+    "rating": 4.7
+  },
+  {
+    "id": 3,
+    "title": "Mekanik Klavye 75%",
+    "description": "RGB aydinlatma ve mavi switch ile ofis ve oyun icin ideal klavye.",
+    "price": 1299.0,
+    "imageUrl": "https://picsum.photos/seed/keyboard/800/600",
+    "category": "Aksesuar",
+    "rating": 4.4
+  },
+  {
+    "id": 4,
+    "title": "Ergonomik Mouse",
+    "description": "Uzun sureli kullanimda bilek konforu saglayan dikey tasarimli mouse.",
+    "price": 699.0,
+    "imageUrl": "https://picsum.photos/seed/mouse/800/600",
+    "category": "Aksesuar",
+    "rating": 4.3
+  },
+  {
+    "id": 5,
+    "title": "4K Monitör 27\"",
+    "description": "Canli renkler, genis gorus acisi ve USB-C baglantiya sahip monitor.",
+    "price": 9999.0,
+    "imageUrl": "https://picsum.photos/seed/monitor/800/600",
+    "category": "Goruntu",
+    "rating": 4.8
+  },
+  {
+    "id": 6,
+    "title": "Bluetooth Hoparlor Mini",
+    "description": "Kompakt boyut, guclu bass ve su sicrama dayanikliligi sunar.",
+    "price": 849.0,
+    "imageUrl": "https://picsum.photos/seed/speaker/800/600",
+    "category": "Ses",
+    "rating": 4.2
+  },
+  {
+    "id": 7,
+    "title": "Tablet 10.5",
+    "description": "Not alma, video izleme ve online dersler icin dengeli performans sunar.",
+    "price": 6999.0,
+    "imageUrl": "https://picsum.photos/seed/tablet/800/600",
+    "category": "Mobil",
+    "rating": 4.5
+  },
+  {
+    "id": 8,
+    "title": "Powerbank 20000mAh",
+    "description": "Cift cikis, hizli sarj ve guvenli enerji yonetimi ile tasinabilir batarya.",
+    "price": 1199.0,
+    "imageUrl": "https://picsum.photos/seed/powerbank/800/600",
+    "category": "Mobil",
+    "rating": 4.1
+  }
+]
