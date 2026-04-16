@@ -26,15 +26,21 @@ class CartScreen extends StatefulWidget {
 class _CartScreenState extends State<CartScreen> {
   int _quantityOf(Product product) => widget.quantities[product.id] ?? 0;
 
+  List<Product> get _visibleProducts {
+    return widget.products
+        .where((product) => _quantityOf(product) > 0)
+        .toList(growable: false);
+  }
+
   double get _totalPrice {
-    return widget.products.fold(0, (sum, product) {
+    return _visibleProducts.fold(0, (sum, product) {
       return sum + (product.price * _quantityOf(product));
     });
   }
 
   @override
   Widget build(BuildContext context) {
-    final products = widget.products;
+    final products = _visibleProducts;
 
     return Scaffold(
       extendBodyBehindAppBar: true,

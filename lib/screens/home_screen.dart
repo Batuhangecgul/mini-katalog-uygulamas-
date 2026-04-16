@@ -15,10 +15,13 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
+  static const String _allCategoriesLabel = 'Tum kategoriler';
+
   final ProductRepository _repository = ProductRepository();
 
   List<Product> _allProducts = [];
   String _searchText = '';
+  String _selectedCategory = _allCategoriesLabel;
   final Map<int, int> _cartProductQuantities = {};
   bool _isLoading = true;
 
@@ -52,15 +55,28 @@ class _HomeScreenState extends State<HomeScreen> {
   }
 
   List<Product> get _filteredProducts {
-    if (_searchText.trim().isEmpty) {
-      return _allProducts;
-    }
-
     final query = _searchText.toLowerCase();
+
     return _allProducts.where((product) {
-      return product.title.toLowerCase().contains(query) ||
+      final matchesCategory =
+          _selectedCategory == _allCategoriesLabel ||
+              product.category == _selectedCategory;
+      final matchesQuery = query.trim().isEmpty ||
+          product.title.toLowerCase().contains(query) ||
           product.category.toLowerCase().contains(query);
+
+      return matchesCategory && matchesQuery;
     }).toList();
+  }
+
+  List<String> get _categories {
+    final categories = _allProducts
+        .map((product) => product.category)
+        .toSet()
+        .toList()
+      ..sort();
+
+    return [_allCategoriesLabel, ...categories];
   }
 
   List<Product> get _cartProducts {
@@ -210,6 +226,47 @@ class _HomeScreenState extends State<HomeScreen> {
     );
   }
 
+  Widget _buildCategoryFilters() {
+    final categories = _categories;
+
+    if (categories.length <= 1) {
+      return const SizedBox.shrink();
+    }
+
+    return SizedBox(
+      height: 42,
+      child: ListView.separated(
+        scrollDirection: Axis.horizontal,
+        itemCount: categories.length,
+        separatorBuilder: (_, index) => const SizedBox(width: 8),
+        itemBuilder: (context, index) {
+          final category = categories[index];
+          final isSelected = category == _selectedCategory;
+
+          return ChoiceChip(
+            label: Text(category),
+            selected: isSelected,
+            onSelected: (_) {
+              setState(() {
+                _selectedCategory = category;
+              });
+            },
+            labelStyle: TextStyle(
+              color: isSelected ? Colors.white : AppStyle.ink,
+              fontWeight: FontWeight.w600,
+            ),
+            selectedColor: AppStyle.primary,
+            backgroundColor: Colors.white,
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(12),
+              side: const BorderSide(color: Color(0xFFE6EAF0)),
+            ),
+          );
+        },
+      ),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -265,6 +322,8 @@ class _HomeScreenState extends State<HomeScreen> {
                           prefixIcon: Icon(Icons.search_rounded),
                         ),
                       ),
+                      const SizedBox(height: 10),
+                      _buildCategoryFilters(),
                       const SizedBox(height: 10),
                       Expanded(
                         child: _filteredProducts.isEmpty
